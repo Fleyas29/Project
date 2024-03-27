@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crack.IT - Your Website Title</title>
+    <title>Game3rb - Your Website Title</title>
     <style>
         /* Reset default browser styles */
         * {
@@ -202,55 +202,48 @@
     <main>
         <!-- Image grid -->
         <div class="image-grid">
-            <!-- Image 1 -->
-            <div class="image-link">
+            <!--KTU POSHT ESHTE IMAZHI -->
+            <div class="image-link" id="imageLink">
                 <div class="image-container">
-                    <div class="image-wrapper">
-                        <a href="https://crackshash.org/microsoft-office-professional-plus-build-x64-incl-activator/">
-                            <img src="https://partner.microsoft.com/-/media/mssc/mpn/partner/solutions/images/featured_content_500x280_office_tile.ashx?h=280&iar=0&w=500&la=en&hash=08EB904DDD4E1A08B75C439A299BB817" alt="Microsoft Office Professional Plus 2016-2021 Crack">
-                        </a>
+                    <div class="image-wrapper"><a href="https://crackshash.org/microsoft-office-professional-plus-build-x64-incl-activator/">
+                        <img src="https://partner.microsoft.com/-/media/mssc/mpn/partner/solutions/images/featured_content_500x280_office_tile.ashx?h=280&iar=0&w=500&la=en&hash=08EB904DDD4E1A08B75C439A299BB817" alt="microsoft office" id="clickableImage">
                     </div>
                     <div class="overlay">
                         <div class="overlay-content">
                             <h2>Microsoft Office Professional Plus 2016-2021 Crack</h2>
                         </div>
                     </div>
-                </div>
+                </a></div>
             </div>
-            <!-- Image 2 -->
-            <div class="image-link">
+            <!--KTU POSHT ESHTE IMAZHI -->
+            <div class="image-link" id="imageLink">
                 <div class="image-container">
-                    <div class="image-wrapper">
-                        <a href="https://getintopc.com/softwares/3d-cad/autodesk-autocad-architecture-2024-free-download-1141566/">
-                            <img src="https://sistemasrjd.com/6573-large_default/autodesk-autocad-architecture-2023-2024-license-for-windows-for-1-year.jpg" alt="Autodesk AutoCAD Architecture 2024 Free Download">
-                        </a>
+                    <div class="image-wrapper"><a href="https://getintopc.com/softwares/3d-cad/autodesk-autocad-architecture-2024-free-download-1141566/">
+                        <img src="https://sistemasrjd.com/6573-large_default/autodesk-autocad-architecture-2023-2024-license-for-windows-for-1-year.jpg" alt="autocad autodesk 3d cad architecture" id="clickableImage">
                     </div>
                     <div class="overlay">
                         <div class="overlay-content">
                             <h2>Autodesk AutoCAD Architecture 2024 Free Download</h2>
                         </div>
                     </div>
-                </div>
+                </a></div>
             </div>
-            <!-- Image 3 -->
-            <div class="image-link">
+            <!--KTU POSHT ESHTE IMAZHI -->
+            <div class="image-link" id="imageLink">
                 <div class="image-container">
-                   
-                    <div class="image-wrapper">
-                        <a href="https://crackshash.org/microsoft-office-professional-plus-build-x64-incl-activator/">
-                            <img src="https://partner.microsoft.com/-/media/mssc/mpn/partner/solutions/images/featured_content_500x280_office_tile.ashx?h=280&iar=0&w=500&la=en&hash=08EB904DDD4E1A08B75C439A299BB817" alt="Microsoft Office Professional Plus 2016-2021 Crack">
-                        </a>
+                    <div class="image-wrapper"><a href="https://crackshash.org/microsoft-office-professional-plus-build-x64-incl-activator/">
+                        <img src="https://partner.microsoft.com/-/media/mssc/mpn/partner/solutions/images/featured_content_500x280_office_tile.ashx?h=280&iar=0&w=500&la=en&hash=08EB904DDD4E1A08B75C439A299BB817" alt="Clickable Image" id="clickableImage">
                     </div>
                     <div class="overlay">
                         <div class="overlay-content">
                             <h2>Microsoft Office Professional Plus 2016-2021 Crack</h2>
                         </div>
                     </div>
-                </div>
+                </a></div>
             </div>
         </div>
         <!-- End of image grid -->
-
+        
         <h2>Contact Us</h2>
         <p>If you have any questions or feedback, feel free to reach out to us via email.</p>
     </main>
@@ -261,25 +254,81 @@
     <!-- JavaScript for search functionality and recent searches -->
     <script>
         // Your JavaScript code here
-        document.addEventListener("DOMContentLoaded", function() {
-            document.getElementById("search-form").addEventListener("submit", function(event) {
-                event.preventDefault(); // Prevent the form from submitting
-
-                var query = document.getElementById("search-input").value.toLowerCase(); // Get the search query
-                var images = document.querySelectorAll(".image-link"); // Get all image links
-
-                images.forEach(function(image) {
-                    var imageTitle = image.querySelector("img").alt.toLowerCase(); // Get the alt attribute of the image
-
-                    // Check if the image title contains the search query or is a close match
-                    if (imageTitle.includes(query)) {
-                        image.style.display = "block"; // Show the image
-                    } else {
-                        image.style.display = "none"; // Hide the image
-                    }
-                });
-            });
+        document.getElementById("imageLink").addEventListener("click", function(event) {
+            var image = document.getElementById("clickableImage");
+            var rect = image.getBoundingClientRect();
+            var x = event.clientX - rect.left;
+            var y = event.clientY - rect.top;
+            if (x >= 10 && y >= 10 && x <= rect.width && y <= rect.height) {
+                window.location.href = "linked_page.html";
+            }
         });
+        // Function to calculate Levenshtein distance between two strings
+function levenshteinDistance(a, b) {
+    if (a.length === 0) return b.length;
+    if (b.length === 0) return a.length;
+
+    var matrix = [];
+
+    // Increment along the first column of each row
+    var i;
+    for (i = 0; i <= b.length; i++) {
+        matrix[i] = [i];
+    }
+
+    // Increment each column in the first row
+    var j;
+    for (j = 0; j <= a.length; j++) {
+        matrix[0][j] = j;
+    }
+
+    // Fill in the rest of the matrix
+    for (i = 1; i <= b.length; i++) {
+        for (j = 1; j <= a.length; j++) {
+            if (b.charAt(i - 1) == a.charAt(j - 1)) {
+                matrix[i][j] = matrix[i - 1][j - 1];
+            } else {
+                matrix[i][j] = Math.min(
+                    matrix[i - 1][j - 1] + 1, // substitution
+                    Math.min(
+                        matrix[i][j - 1] + 1, // insertion
+                        matrix[i - 1][j] + 1 // deletion
+                    )
+                );
+            }
+        }
+    }
+
+    return matrix[b.length][a.length];
+}
+
+// Function to perform fuzzy search
+function fuzzySearch(query, target) {
+    var threshold = 3; // Set a threshold for the maximum Levenshtein distance allowed
+    var distance = levenshteinDistance(query.toLowerCase(), target.toLowerCase());
+
+    return distance <= threshold; // Return true if the distance is within the threshold
+}
+
+// Function to handle form submission
+document.getElementById("search-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the form from submitting
+
+    var query = document.getElementById("search-input").value.toLowerCase(); // Get the search query
+    var images = document.querySelectorAll(".image-link"); // Get all image links
+
+    images.forEach(function(image) {
+        var imageTitle = image.querySelector("img").alt.toLowerCase(); // Get the alt attribute of the image
+
+        // Check if the image title contains the search query or is a close match
+        if (imageTitle.includes(query) || fuzzySearch(query, imageTitle)) {
+            image.style.display = "block"; // Show the image
+        } else {
+            image.style.display = "none"; // Hide the image
+        }
+    });
+});
+
     </script>
 </body>
 </html>
