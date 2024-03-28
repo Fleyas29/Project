@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="Skull-with-headphones-vector-Graphics-16329488-1-Photoroom.png-Photoroom.png">
-
     <title>CrackIT</title>
     <style>
         /* Reset default browser styles */
@@ -292,81 +291,80 @@
 
     <!-- JavaScript for search functionality and recent searches -->
     <script>
-        // Your JavaScript code here
-        document.getElementById("imageLink").addEventListener("click", function(event) {
-            var image = document.getElementById("clickableImage");
-            var rect = image.getBoundingClientRect();
-            var x = event.clientX - rect.left;
-            var y = event.clientY - rect.top;
-            if (x >= 10 && y >= 10 && x <= rect.width && y <= rect.height) {
-                window.location.href = "linked_page.html";
-            }
-        });
         // Function to calculate Levenshtein distance between two strings
-function levenshteinDistance(a, b) {
-    if (a.length === 0) return b.length;
-    if (b.length === 0) return a.length;
+        function levenshteinDistance(a, b) {
+            if (a.length === 0) return b.length;
+            if (b.length === 0) return a.length;
 
-    var matrix = [];
+            var matrix = [];
 
-    // Increment along the first column of each row
-    var i;
-    for (i = 0; i <= b.length; i++) {
-        matrix[i] = [i];
-    }
-
-    // Increment each column in the first row
-    var j;
-    for (j = 0; j <= a.length; j++) {
-        matrix[0][j] = j;
-    }
-
-    // Fill in the rest of the matrix
-    for (i = 1; i <= b.length; i++) {
-        for (j = 1; j <= a.length; j++) {
-            if (b.charAt(i - 1) == a.charAt(j - 1)) {
-                matrix[i][j] = matrix[i - 1][j - 1];
-            } else {
-                matrix[i][j] = Math.min(
-                    matrix[i - 1][j - 1] + 1, // substitution
-                    Math.min(
-                        matrix[i][j - 1] + 1, // insertion
-                        matrix[i - 1][j] + 1 // deletion
-                    )
-                );
+            // Increment along the first column of each row
+            var i;
+            for (i = 0; i <= b.length; i++) {
+                matrix[i] = [i];
             }
+
+            // Increment each column in the first row
+            var j;
+            for (j = 0; j <= a.length; j++) {
+                matrix[0][j] = j;
+            }
+
+            // Fill in the rest of the matrix
+            for (i = 1; i <= b.length; i++) {
+                for (j = 1; j <= a.length; j++) {
+                    if (b.charAt(i - 1) == a.charAt(j - 1)) {
+                        matrix[i][j] = matrix[i - 1][j - 1];
+                    } else {
+                        matrix[i][j] = Math.min(
+                            matrix[i - 1][j - 1] + 1, // substitution
+                            Math.min(
+                                matrix[i][j - 1] + 1, // insertion
+                                matrix[i - 1][j] + 1 // deletion
+                            )
+                        );
+                    }
+                }
+            }
+
+            return matrix[b.length][a.length];
         }
-    }
 
-    return matrix[b.length][a.length];
-}
+        // Function to perform fuzzy search
+        function fuzzySearch(query, target) {
+            var threshold = 3; // Set a threshold for the maximum Levenshtein distance allowed
+            var distance = levenshteinDistance(query.toLowerCase(), target.toLowerCase());
 
-// Function to perform fuzzy search
-function fuzzySearch(query, target) {
-    var threshold = 3; // Set a threshold for the maximum Levenshtein distance allowed
-    var distance = levenshteinDistance(query.toLowerCase(), target.toLowerCase());
-
-    return distance <= threshold; // Return true if the distance is within the threshold
-}
-
-// Function to handle form submission
-document.getElementById("search-form").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent the form from submitting
-
-    var query = document.getElementById("search-input").value.toLowerCase(); // Get the search query
-    var images = document.querySelectorAll(".image-link"); // Get all image links
-
-    images.forEach(function(image) {
-        var imageTitle = image.querySelector("img").alt.toLowerCase(); // Get the alt attribute of the image
-
-        // Check if the image title contains the search query or is a close match
-        if (imageTitle.includes(query) || fuzzySearch(query, imageTitle)) {
-            image.style.display = "block"; // Show the image
-        } else {
-            image.style.display = "none"; // Hide the image
+            return distance <= threshold; // Return true if the distance is within the threshold
         }
-    });
-});
+
+        // Function to handle form submission
+        document.getElementById("search-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            var query = document.getElementById("search-input").value.toLowerCase(); // Get the search query
+            var images = document.querySelectorAll(".image-link"); // Get all image links
+
+            images.forEach(function(image) {
+                var imageTitle = image.querySelector("img").alt.toLowerCase(); // Get the alt attribute of the image
+
+                // Check if the image title contains the search query or is a close match
+                if (imageTitle.includes(query) || fuzzySearch(query, imageTitle)) {
+                    image.style.display = "block"; // Show the image
+                } else {
+                    image.style.display = "none"; // Hide the image
+                }
+            });
+        });
+
+        // Add event listeners to make images clickable
+        var imageLinks = document.querySelectorAll('.image-link');
+        imageLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                var url = this.querySelector('a').getAttribute('href');
+                window.location.href = url;
+            });
+        });
 
     </script>
 </body>
