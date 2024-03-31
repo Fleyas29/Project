@@ -143,19 +143,35 @@
             margin-bottom: 20px;
         }
 
-        .image-container {
-            position: relative;
-            overflow: hidden;
-            height: 200px;
-            border-radius: 5px;
-        }
+       .image-link {
+    flex: 0 0 calc(25% - 20px); /* Adjust the width of each image link */
+    margin-bottom: 20px;
+}
 
-        .image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
+.image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background-color: #333; /* Add a background color for better visual consistency */
+    width: 100%; /* Set the width to 100% */
+    padding-bottom: 56%; /* Set the height based on the desired aspect ratio (e.g., 4:3 aspect ratio) */
+}
+
+.image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+}
+
+
 
         .overlay {
             position: absolute;
@@ -319,7 +335,7 @@
                 <div class="image-container">
                     <div class="image-wrapper">
                         <a href="https://getintopc.com/softwares/3d-cad/autodesk-autocad-architecture-2024-free-download-1141566/">
-                            <img src="https://sistemasrjd.com/6573-large_default/autodesk-autocad-architecture-2023-2024-license-for-windows-for-1-year.jpg" alt="Autodesk AutoCAD Architecture 2024 Free Download">
+                            <img src="https://www.magicad.com/wp-content/uploads/2024/02/Autodesk-AutoCAD-2024.png" alt="Autodesk AutoCAD Architecture 2024 Free Download">
                         </a>
                     </div>
                     <div class="overlay">
@@ -506,6 +522,8 @@
                 window.location.href = url;
             });
         });
+
+
 
     </script>
 </body>
