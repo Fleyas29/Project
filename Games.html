@@ -76,14 +76,16 @@
 
         /* Footer styles */
        footer {
-            background-color: rgba(0, 0, 0, 0.5);
-            color: fff;
-            padding: 10px 0;
-            text-align: center;
-            width: 100%;
-            flex-shrink: 0; /* Prevent footer from shrinking */
-        }
-
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: fff;
+    padding: 10px 0;
+    text-align: center;
+    z-index: 999; /* Ensure the footer appears above other content */
+}
 
         /* Search container styles */
         .search-container {
