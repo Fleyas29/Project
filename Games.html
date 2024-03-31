@@ -12,6 +12,7 @@
     <title>CrackIT</title>
     <style>
         /* Reset default browser styles */
+           /* Reset default browser styles */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -38,7 +39,6 @@
             margin-bottom: 10px;
             font-family: 'Press Start 2P', cursive; /* Apply the Press Start 2P font */
         }
-
 
         /* Navigation styles */
         nav {
@@ -75,15 +75,15 @@
         }
 
         /* Footer styles */
-        footer {
-            background-color: #111;
-            color: #fff;
+       footer {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: fff;
             padding: 10px 0;
             text-align: center;
-            position: fixed;
-            bottom: 0;
             width: 100%;
+            flex-shrink: 0; /* Prevent footer from shrinking */
         }
+
 
         /* Search container styles */
         .search-container {
@@ -145,7 +145,12 @@
             margin-bottom: 20px;
         }
 
-        .image-container {
+       .image-link {
+    flex: 0 0 calc(25% - 20px); /* Adjust the width of each image link */
+    margin-bottom: 20px;
+}
+
+.image-container {
     position: relative;
     overflow: hidden;
     border-radius: 12px;
@@ -167,6 +172,7 @@
     height: 100%;
     object-fit: cover; /* Maintain aspect ratio and cover the container */
 }
+
 
 
         .overlay {
@@ -339,6 +345,7 @@
     <!-- JavaScript for search functionality and recent searches -->
     <script>
         // Function to calculate Levenshtein distance between two strings
+          // Function to calculate Levenshtein distance between two strings
         function levenshteinDistance(a, b) {
             if (a.length === 0) return b.length;
             if (b.length === 0) return a.length;
@@ -376,7 +383,6 @@
 
             return matrix[b.length][a.length];
         }
-
         // Function to perform fuzzy search
         function fuzzySearch(query, target) {
             var threshold = 3; // Set a threshold for the maximum Levenshtein distance allowed
