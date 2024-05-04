@@ -11,72 +11,230 @@
     <link rel="icon" type="image/png" href="android-chrome-512x512.png">
     <title>CrackIT</title>
     <style>
-        /* Reset default browser styles */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;}
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #222;
-            color: #fff;
-            line-height: 1.6;}
-        /* Header styles */
-         header {
-            background-color: #111;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;}
-        header h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-            font-family: 'Press Start 2P', cursive; /* Apply the Press Start 2P font */}
-        /* Navigation styles */
-        nav {
-            background-color: #333;
-            padding: 10px 0;
-            text-align: center;}
-        nav a {color: #fff;
-            text-decoration: none;
-            padding: 10px 20px;
-            margin: 0 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;}
-        nav a:hover {background-color: #555;}
-        /* Main content styles */
-        main {padding: 20px;}
-        main h2 {font-size: 24px;
-            margin-bottom: 10px;}
-        main p {margin-bottom: 20px;}
-        /* Footer styles */
-        footer {background-color: #111;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            width: 100%;}
-        /* Search container styles */
-        .search-container {position: absolute;
-            top: 20px;
-            right: 20px;}
+      /* Media query for smaller screens (e.g., smartphones) */
+@media only screen and (max-width: 768px) {
+    /* Adjust header styles for smaller screens */
+    header {
+        padding: 15px 0;
+    }
+    header h1 {
+        font-size: 28px;
+    }
+    /* Adjust navigation styles for smaller screens */
+    nav {
+        padding: 5px 0;
+    }
+    nav a {
+        padding: 5px 10px;
+        margin: 0 5px;
+    }
+    /* Adjust main content styles for smaller screens */
+    main {
+        padding: 15px;
+    }
+    main h2 {
+        font-size: 20px;
+    }
+    main p {
+        margin-bottom: 15px;
+    }
+    /* Adjust footer styles for smaller screens */
+    footer {
+        padding: 5px 0;
+    }
+}
+
+/* Reset default browser styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    color: #fff;
+    line-height: 1.6;
+}
+/* Header styles */
+header {
+    background-color: #111;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    font-family: 'Press Start 2P', cursive; /* Apply the Press Start 2P font */
+}
+/* Navigation styles */
+nav {
+    background-color: #333;
+    padding: 10px 0;
+    text-align: center;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+nav a:nth-child(odd) { /* Change every odd navigation link to white */
+    background-color: #fff;
+    color: #333;
+}
+nav a:nth-child(even) { /* Change every even navigation link to orange */
+    background-color: #ff7f00;
+}
+nav a:hover {
+    background-color: #555;
+}
+/* Main content styles */
+main {
+    padding: 20px;
+}
+main h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+main p {
+    margin-bottom: 20px;
+}
+/* Footer styles */
+footer {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: fff;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+    flex-shrink: 0; /* Prevent footer from shrinking */
+}
+/* Search container styles */
+.search-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
 .search-container input[type="text"] {
-            padding: 10px;
-            width: 200px;
-            border-radius: 5px;
-            border: none;
-            background-color: #333;
-            color: #fff;}
-        .search-container input[type="submit"] {
-            background-color: #007acc;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            margin-left: 5px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;}
-        .search-container input[type="submit"]:hover {background-color: #005fa6;}
+    padding: 10px;
+    width: 200px;
+    border-radius: 5px;
+    border: none;
+    background-color: #fff; /* Change search bar color to white */
+    color: #333; /* Change text color to dark */
+}
+.search-container input[type="submit"] {
+    background-color: #ff7f00; /* Change search button color to orange */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.search-container input[type="submit"]:hover {
+    background-color: #ffaa33; /* Darker shade of orange on hover */
+}
+/* Recent searches styles */
+.recent-searches {
+    margin-top: 10px;
+}
+.recent-searches ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.recent-searches li {
+    margin-bottom: 5px;
+}
+/* Image grid styles */
+.image-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+.image-link {
+    flex: 0 0 calc(25% - 20px); /* Adjust the width of each image link */
+    margin-bottom: 20px;
+}
+.image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background-color: #333; /* Add a background color for better visual consistency */
+    width: 100%; /* Set the width to 100% */
+    padding-bottom: 56%; /* Set the height based on the desired aspect ratio (e.g., 4:3 aspect ratio) */
+}
+.image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.overlay-content {
+    color: white;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+.image-container:hover .overlay {
+    opacity: 1;
+}
+/* Styles for the popup */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    overflow: auto;
+}
+.popup-content {
+    color: black;
+    position: relative;
+    margin: 5% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.popup-exit {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
     </style>
 </head>
 <body>
