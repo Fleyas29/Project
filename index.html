@@ -16,6 +16,9 @@
     <link rel="icon" type="image/png" href="android-chrome-512x512.png">
     <title>CrackIT</title>
     <style>
+html {
+    scroll-behavior: smooth;
+}       
 /* Media query for smaller screens (e.g., smartphones) */
 @media only screen and (max-width: 768px) {
     /* Adjust header styles for smaller screens */
@@ -1339,6 +1342,12 @@ As long as the website and the information and services on the website are provi
   function closePopup() {
     document.getElementById('popup').style.display = 'none';
   }
+        // Smooth scroll to a specific element
+document.querySelector('.scroll-to-element').addEventListener('click', function() {
+    document.querySelector('.target-element').scrollIntoView({
+        behavior: 'smooth'
+    });
+});
     </script>
 </body>
 </html>
