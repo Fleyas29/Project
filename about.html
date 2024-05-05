@@ -106,11 +106,26 @@ main p {
 /* Footer styles */
 footer {
     background-color: rgba(0, 0, 0, 0.5);
-    color: fff;
-    padding: 10px 0;
+    color: #fff;
+    padding: 10px 20px;
     text-align: center;
     width: 100%;
-    flex-shrink: 0; /* Prevent footer from shrinking */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+footer img {
+    margin-left: 10px;
+}
+
+footer .trustpilot-widget {
+    margin-left: auto; /* Move the Trustpilot button to the right */
 }
 /* Search container styles */
 .search-container {
@@ -259,7 +274,17 @@ crossorigin="anonymous"></script>
         <p>If you have any questions or feedback, feel free to reach out to us via <a href="mailto:crackiteam1@gmail.com" class="contact-button">email</a><br>If the contact button doesn't work, you can email us directly at:"crackiteam1@gmail.com"</p>
     </main>
     <footer>
-        &copy; 2024 Crack.IT. All rights reserved.
-    </footer>
+    &copy; 2024 Crack.IT.
+    <!-- Instagram button -->
+    <a href="https://www.instagram.com/crackit_al/" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png" alt="Instagram" width="30" height="30">
+    </a>
+    <!-- Trustpilot button -->
+    <div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="663754ea3b8dd18b40e8c34e" data-style-height="52px" data-style-width="100%">
+        <a href="https://www.trustpilot.com/review/crackit.cc" target="_blank" rel="noopener">Trustpilot</a>
+    </div>
+    <!-- Text below Trustpilot button -->
+    <div>Every review helps us improve</div>
+</footer>
 </body>
 </html>
