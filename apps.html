@@ -106,23 +106,28 @@ main p {
 /* Footer styles */
 footer {
     background-color: rgba(0, 0, 0, 0.5);
-    color: #fff; /* corrected the color value */
-    padding: 10px 20px; /* increased padding for better spacing */
+    color: #fff;
+    padding: 10px 20px;
     text-align: center;
     width: 100%;
-    display: flex; /* use flexbox for layout */
-    justify-content: space-between; /* space items evenly, pushing the Instagram button to the right */
-    align-items: center; /* vertically center items */
-    flex-shrink: 0; /* Prevent footer from shrinking */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
 }
 
 footer a {
-    text-decoration: none; /* remove underline from anchor elements */
+    text-decoration: none;
 }
 
 footer img {
-    margin-left: 10px; /* add some space between the text and the Instagram button */
+    margin-left: 10px;
 }
+
+footer .trustpilot-widget {
+    margin-left: auto; /* Move the Trustpilot button to the right */
+}
+
 /* Search container styles */
 .search-container {
     position: absolute;
@@ -410,10 +415,16 @@ footer img {
     </main>
    <footer>
     &copy; 2024 Crack.IT.
-    <!-- Add the Instagram button here -->
+    <!-- Instagram button -->
     <a href="https://www.instagram.com/crackit_al/" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png" alt="Instagram" width="30" height="30">
     </a>
+    <!-- Trustpilot button -->
+    <div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="663754ea3b8dd18b40e8c34e" data-style-height="52px" data-style-width="100%">
+        <a href="https://www.trustpilot.com/review/crackit.cc" target="_blank" rel="noopener">Trustpilot</a>
+    </div>
+    <!-- Text below Trustpilot button -->
+    <div>Every review helps us improve</div>
 </footer>
     <!-- JavaScript for search functionality and recent searches -->
     <script>
