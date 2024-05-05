@@ -106,11 +106,22 @@ main p {
 /* Footer styles */
 footer {
     background-color: rgba(0, 0, 0, 0.5);
-    color: fff;
-    padding: 10px 0;
+    color: #fff; /* corrected the color value */
+    padding: 10px 20px; /* increased padding for better spacing */
     text-align: center;
     width: 100%;
+    display: flex; /* use flexbox for layout */
+    justify-content: space-between; /* space items evenly, pushing the Instagram button to the right */
+    align-items: center; /* vertically center items */
     flex-shrink: 0; /* Prevent footer from shrinking */
+}
+
+footer a {
+    text-decoration: none; /* remove underline from anchor elements */
+}
+
+footer img {
+    margin-left: 10px; /* add some space between the text and the Instagram button */
 }
 /* Search container styles */
 .search-container {
@@ -321,20 +332,6 @@ footer {
                     </div>
                 </div>
             </div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2491662914406380"
-     crossorigin="anonymous"></script>
-<!-- Reklama katrore -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2491662914406380"
-     data-ad-slot="2850384769"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-            
  <div class="image-link">
                 <div class="image-container">
                     <div class="image-wrapper">
@@ -411,24 +408,13 @@ footer {
         <h2>Contact Us</h2>
         <p>If you have any questions or feedback, feel free to reach out to us via email.</p>
     </main>
-         <div id="disqus_thread"></div>
-<script>
-    /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-    
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://crackit-1.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <footer>
-        &copy; 2024 Crack.IT. All rights reserved.
-    </footer>
-
+   <footer>
+    &copy; 2024 Crack.IT.
+    <!-- Add the Instagram button here -->
+    <a href="https://www.instagram.com/crackit_al/" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png" alt="Instagram" width="30" height="30">
+    </a>
+</footer>
     <!-- JavaScript for search functionality and recent searches -->
     <script>
         // Function to calculate Levenshtein distance between two strings
