@@ -108,12 +108,24 @@ main p {
 /* Footer styles */
 footer {
     background-color: rgba(0, 0, 0, 0.5);
-    color: fff;
-    padding: 10px 0;
+    color: #fff; /* corrected the color value */
+    padding: 10px 20px; /* increased padding for better spacing */
     text-align: center;
     width: 100%;
+    display: flex; /* use flexbox for layout */
+    justify-content: space-between; /* space items evenly, pushing the Instagram button to the right */
+    align-items: center; /* vertically center items */
     flex-shrink: 0; /* Prevent footer from shrinking */
 }
+
+footer a {
+    text-decoration: none; /* remove underline from anchor elements */
+}
+
+footer img {
+    margin-left: 10px; /* add some space between the text and the Instagram button */
+}
+
 /* Search container styles */
 .search-container {
     position: absolute;
@@ -1215,8 +1227,12 @@ As long as the website and the information and services on the website are provi
         <p>If you have any questions or feedback, feel free to reach out to us via email.</p>
     </main>
     <footer>
-        &copy; 2024 Crack.IT.
-    </footer>
+    &copy; 2024 Crack.IT.
+    <!-- Add the Instagram button here -->
+    <a href="https://www.instagram.com/crackit_al/" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png" alt="Instagram" width="30" height="30">
+    </a>
+</footer>
     <!-- JavaScript for search functionality and recent searches -->
     <script>
         // Function to calculate Levenshtein distance between two strings
