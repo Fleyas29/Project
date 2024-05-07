@@ -793,71 +793,8 @@ html{scroll-behavior:smooth}@media only screen and (max-width:768px){header{padd
     <!-- Text below Trustpilot button -->
     <div>Every review helps us improve</div>
 </footer>
-    <!-- JavaScript for search functionality and recent searches -->
     <script>
-        // Function to calculate Levenshtein distance between two strings
-          // Function to calculate Levenshtein distance between two strings
-        function levenshteinDistance(a, b) {
-            if (a.length === 0) return b.length;
-            if (b.length === 0) return a.length;
-            var matrix = [];
-            // Increment along the first column of each row
-            var i;
-            for (i = 0; i <= b.length; i++) {
-                matrix[i] = [i];
-            }
-            // Increment each column in the first row
-            var j;
-            for (j = 0; j <= a.length; j++) {
-                matrix[0][j] = j;
-            }
-            // Fill in the rest of the matrix
-            for (i = 1; i <= b.length; i++) {
-                for (j = 1; j <= a.length; j++) {
-                    if (b.charAt(i - 1) == a.charAt(j - 1)) {
-                        matrix[i][j] = matrix[i - 1][j - 1];
-                    } else {
-                        matrix[i][j] = Math.min(
-                            matrix[i - 1][j - 1] + 1, // substitution
-                            Math.min(
-                                matrix[i][j - 1] + 1, // insertion
-                                matrix[i - 1][j] + 1 // deletion
-                            )
-                        );
-                    }
-                }
-            }
-            return matrix[b.length][a.length];
-        }
-        // Function to perform fuzzy search
-        function fuzzySearch(query, target) {
-            var threshold = 3; // Set a threshold for the maximum Levenshtein distance allowed
-            var distance = levenshteinDistance(query.toLowerCase(), target.toLowerCase());
-            return distance <= threshold; // Return true if the distance is within the threshold
-        }
-        // Function to handle form submission
-        document.getElementById("search-form").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent the form from submitting
-            var query = document.getElementById("search-input").value.toLowerCase(); // Get the search query
-            var images = document.querySelectorAll(".image-link"); // Get all image links
-            images.forEach(function(image) {
-                var imageTitle = image.querySelector("img").alt.toLowerCase(); // Get the alt attribute of the image
-                // Check if the image title contains the search query or is a close match
-                if (imageTitle.includes(query) || fuzzySearch(query, imageTitle)) {
-                    image.style.display = "block"; // Show the image
-                } else {
-                    image.style.display = "none"; // Hide the image
-                }
-            });
-        });
-        // Add event listeners to make images clickable
-        var imageLinks = document.querySelectorAll('.image-link');
-        imageLinks.forEach(function(link) {
-            link.addEventListener('click', function() {
-                var url = this.querySelector('a').getAttribute('href');
-                window.location.href = url;
-            });
-        });
+       function levenshteinDistance(a,b){if(a.length===0)return b.length;if(b.length===0)return a.length;var matrix=[];for(var i=0;i<=b.length;i++){matrix[i]=[i];}for(var j=0;j<=a.length;j++){matrix[0][j]=j;}for(var i=1;i<=b.length;i++){for(var j=1;j<=a.length;j++){if(b.charAt(i-1)==a.charAt(j-1)){matrix[i][j]=matrix[i-1][j-1];}else{matrix[i][j]=Math.min(matrix[i-1][j-1]+1,Math.min(matrix[i][j-1]+1,matrix[i-1][j]+1));}}}return matrix[b.length][a.length];}function fuzzySearch(query,target){var threshold=3;var distance=levenshteinDistance(query.toLowerCase(),target.toLowerCase());return distance<=threshold;}document.getElementById("search-form").addEventListener("submit",function(event){event.preventDefault();var query=document.getElementById("search-input").value.toLowerCase();var images=document.querySelectorAll(".image-link");images.forEach(function(image){var imageTitle=image.querySelector("img").alt.toLowerCase();if(imageTitle.includes(query)||fuzzySearch(query,imageTitle)){image.style.display="block";}else{image.style.display="none";}});});var imageLinks=document.querySelectorAll('.image-link');imageLinks.forEach(function(link){link.addEventListener('click',function(){var url=this.querySelector('a').getAttribute('href');window.location.href=url;});});function openPopup(){document.getElementById('popup').style.display='block';}function closePopup(){document.getElementById('popup').style.display='none';}document.querySelector('.scroll-to-element').addEventListener('click',function(){document.querySelector('.target-element').scrollIntoView({behavior:'smooth'});});
     </script>
 </body>
 </html>
