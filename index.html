@@ -1008,7 +1008,45 @@ As long as the website and the information and services on the website are provi
 </footer>
     <!-- JavaScript for search functionality and recent searches -->
     <script>
-       function levenshteinDistance(a,b){if(a.length===0)return b.length;if(b.length===0)return a.length;var matrix=[];for(var i=0;i<=b.length;i++){matrix[i]=[i];}for(var j=0;j<=a.length;j++){matrix[0][j]=j;}for(var i=1;i<=b.length;i++){for(var j=1;j<=a.length;j++){if(b.charAt(i-1)==a.charAt(j-1)){matrix[i][j]=matrix[i-1][j-1];}else{matrix[i][j]=Math.min(matrix[i-1][j-1]+1,Math.min(matrix[i][j-1]+1,matrix[i-1][j]+1));}}}return matrix[b.length][a.length];}function fuzzySearch(query,target){var threshold=3;var distance=levenshteinDistance(query.toLowerCase(),target.toLowerCase());return distance<=threshold;}document.getElementById("search-form").addEventListener("submit",function(event){event.preventDefault();var query=document.getElementById("search-input").value.toLowerCase();var images=document.querySelectorAll(".image-link");images.forEach(function(image){var imageTitle=image.querySelector("img").alt.toLowerCase();if(imageTitle.includes(query)||fuzzySearch(query,imageTitle)){image.style.display="block";}else{image.style.display="none";}});});var imageLinks=document.querySelectorAll('.image-link');imageLinks.forEach(function(link){link.addEventListener('click',function(){var url=this.querySelector('a').getAttribute('href');window.location.href=url;});});function openPopup(){document.getElementById('popup').style.display='block';}function closePopup(){document.getElementById('popup').style.display='none';}document.querySelector('.scroll-to-element').addEventListener('click',function(){document.querySelector('.target-element').scrollIntoView({behavior:'smooth'});});function acceptCookies() {document.querySelector('.cookie-consent').style.display = 'none';}
+       function levenshteinDistance(a,b){if(a.length===0)return b.length;if(b.length===0)return a.length;var matrix=[];for(var i=0;i<=b.length;i++){matrix[i]=[i];}for(var j=0;j<=a.length;j++){matrix[0][j]=j;}for(var i=1;i<=b.length;i++){for(var j=1;j<=a.length;j++){if(b.charAt(i-1)==a.charAt(j-1)){matrix[i][j]=matrix[i-1][j-1];}else{matrix[i][j]=Math.min(matrix[i-1][j-1]+1,Math.min(matrix[i][j-1]+1,matrix[i-1][j]+1));}}}return matrix[b.length][a.length];}function fuzzySearch(query,target){var threshold=3;var distance=levenshteinDistance(query.toLowerCase(),target.toLowerCase());return distance<=threshold;}document.getElementById("search-form").addEventListener("submit",function(event){event.preventDefault();var query=document.getElementById("search-input").value.toLowerCase();var images=document.querySelectorAll(".image-link");images.forEach(function(image){var imageTitle=image.querySelector("img").alt.toLowerCase();if(imageTitle.includes(query)||fuzzySearch(query,imageTitle)){image.style.display="block";}else{image.style.display="none";}});});var imageLinks=document.querySelectorAll('.image-link');imageLinks.forEach(function(link){link.addEventListener('click',function(){var url=this.querySelector('a').getAttribute('href');window.location.href=url;});});function openPopup(){document.getElementById('popup').style.display='block';}function closePopup(){document.getElementById('popup').style.display='none';}document.querySelector('.scroll-to-element').addEventListener('click',function(){document.querySelector('.target-element').scrollIntoView({behavior:'smooth'});});function checkCookieConsent() {
+    // Check if the 'cookieConsent' cookie exists or if 'cookieConsentAccepted' is set in local storage
+    if (document.cookie.includes('cookieConsent=accepted') || localStorage.getItem('cookieConsentAccepted')) {
+        // User has already accepted the cookie consent, hide the cookie consent message
+        document.querySelector('.cookie-consent').style.display = 'none';
+    } else {
+        // Cookie consent has not been accepted yet, display the cookie consent message
+        document.querySelector('.cookie-consent').style.display = 'block';
+    }
+}
+
+// Function to set cookie consent
+function setCookieConsent() {
+    // Set a cookie to indicate that the user has accepted the cookie consent
+    document.cookie = 'cookieConsent=accepted; expires=' + new Date(new Date().getTime() + (365 * 24 * 60 * 60 * 1000)).toUTCString() + '; path=/';
+    // Set a flag in local storage
+    localStorage.setItem('cookieConsentAccepted', 'true');
+}
+
+// Function to handle user accepting cookie consent
+function acceptCookieConsent() {
+    // Set cookie consent
+    setCookieConsent();
+    // Hide the cookie consent message
+    document.querySelector('.cookie-consent').style.display = 'none';
+}
+
+        function acceptCookies() {
+    // Call acceptCookieConsent() to handle cookie consent acceptance
+    acceptCookieConsent();
+    // You can add additional JavaScript here to handle cookie consent acceptance
+}
+    </script>
+    <script>
+    // Call checkCookieConsent() when the page loads
+    window.onload = function() {
+        checkCookieConsent();
+    };
+</script>
     </script>
 </body>
 </html>
