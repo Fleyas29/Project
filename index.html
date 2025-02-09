@@ -1273,75 +1273,138 @@ As long as the website and the information and services on the website are provi
     <!-- Text below Trustpilot button -->
     <div>Every review helps us improve</div>
 </footer>
-    <script>
-       function levenshteinDistance(a,b){if(a.length===0)return b.length;if(b.length===0)return a.length;var matrix=[];for(var i=0;i<=b.length;i++){matrix[i]=[i];}for(var j=0;j<=a.length;j++){matrix[0][j]=j;}for(var i=1;i<=b.length;i++){for(var j=1;j<=a.length;j++){if(b.charAt(i-1)==a.charAt(j-1)){matrix[i][j]=matrix[i-1][j-1];}else{matrix[i][j]=Math.min(matrix[i-1][j-1]+1,Math.min(matrix[i][j-1]+1,matrix[i-1][j]+1));}}}return matrix[b.length][a.length];}function fuzzySearch(query,target){var threshold=3;var distance=levenshteinDistance(query.toLowerCase(),target.toLowerCase());return distance<=threshold;}document.getElementById("search-form").addEventListener("submit",function(event){event.preventDefault();var query=document.getElementById("search-input").value.toLowerCase();var images=document.querySelectorAll(".image-link");images.forEach(function(image){var imageTitle=image.querySelector("img").alt.toLowerCase();if(imageTitle.includes(query)||fuzzySearch(query,imageTitle)){image.style.display="block";}else{image.style.display="none";}});});var imageLinks=document.querySelectorAll('.image-link');imageLinks.forEach(function(link){link.addEventListener('click',function(){var url=this.querySelector('a').getAttribute('href');window.location.href=url;});});function openPopup(){document.getElementById('popup').style.display='block';}function closePopup(){document.getElementById('popup').style.display='none';}document.querySelector('.scroll-to-element').addEventListener('click',function(){document.querySelector('.target-element').scrollIntoView({behavior:'smooth'});});function checkCookieConsent(){if(document.cookie.includes('cookieConsent=accepted') || localStorage.getItem('cookieConsentAccepted')){document.querySelector('.cookie-consent').style.display = 'none';}else{document.querySelector('.cookie-consent').style.display = 'block';}}function setCookieConsent(){document.cookie = 'cookieConsent=accepted; expires=' + new Date(new Date().getTime() + (365 * 24 * 60 * 60 * 1000)).toUTCString() + '; path=/';localStorage.setItem('cookieConsentAccepted', 'true');}function acceptCookieConsent() {setCookieConsent();document.querySelector('.cookie-consent').style.display = 'none';}function acceptCookies() {acceptCookieConsent();}</script><script>window.onload = function(){checkCookieConsent();};</script></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const messageBox = document.getElementById('messageBox');
-        setTimeout(() => {
-            messageBox.style.display = 'none';
-        }, 10000);
-
-        messageBox.style.display = 'block';
-    });
-
-    function closeMessage() {
-        const messageBox = document.getElementById('messageBox');
-        messageBox.style.display = 'none';
-    }
+   function levenshteinDistance(a,b){
+       if(a.length===0)return b.length;
+       if(b.length===0)return a.length;
+       var matrix=[];
+       for(var i=0;i<=b.length;i++){
+           matrix[i]=[i];
+       }
+       for(var j=0;j<=a.length;j++){
+           matrix[0][j]=j;
+       }
+       for(var i=1;i<=b.length;i++){
+           for(var j=1;j<=a.length;j++){
+               if(b.charAt(i-1)==a.charAt(j-1)){
+                   matrix[i][j]=matrix[i-1][j-1];
+               } else {
+                   matrix[i][j]=Math.min(matrix[i-1][j-1]+1, Math.min(matrix[i][j-1]+1, matrix[i-1][j]+1));
+               }
+           }
+       }
+       return matrix[b.length][a.length];
+   }
+   function fuzzySearch(query,target){
+       var threshold=3;
+       var distance=levenshteinDistance(query.toLowerCase(),target.toLowerCase());
+       return distance<=threshold;
+   }
+   
+   document.getElementById("search-form").addEventListener("submit", function(event){
+       event.preventDefault();
+       var query = document.getElementById("search-input").value.toLowerCase();
+       var images = document.querySelectorAll(".image-link");
+       images.forEach(function(image){
+           var imageTitle = image.querySelector("img").alt.toLowerCase();
+           if(imageTitle.includes(query) || fuzzySearch(query, imageTitle)){
+               image.style.display = "block";
+           } else {
+               image.style.display = "none";
+           }
+       });
+       
+       // --- New Code Start ---
+       var anyVisible = false;
+       images.forEach(function(image){
+           if(image.style.display !== "none"){
+               anyVisible = true;
+           }
+       });
+       if(!anyVisible){
+           openPopup();
+       }
+       // --- New Code End ---
+   });
+   
+   var imageLinks = document.querySelectorAll('.image-link');
+   imageLinks.forEach(function(link){
+       link.addEventListener('click', function(){
+           var url = this.querySelector('a').getAttribute('href');
+           window.location.href = url;
+       });
+   });
+   
+   function openPopup(){
+       document.getElementById('popup').style.display = 'block';
+   }
+   function closePopup(){
+       document.getElementById('popup').style.display = 'none';
+   }
+   
+   document.querySelector('.scroll-to-element').addEventListener('click', function(){
+       document.querySelector('.target-element').scrollIntoView({behavior:'smooth'});
+   });
+   
+   function checkCookieConsent(){
+       if(document.cookie.includes('cookieConsent=accepted') || localStorage.getItem('cookieConsentAccepted')){
+           document.querySelector('.cookie-consent').style.display = 'none';
+       } else {
+           document.querySelector('.cookie-consent').style.display = 'block';
+       }
+   }
+   function setCookieConsent(){
+       document.cookie = 'cookieConsent=accepted; expires=' + new Date(new Date().getTime() + (365 * 24 * 60 * 60 * 1000)).toUTCString() + '; path=/';
+       localStorage.setItem('cookieConsentAccepted', 'true');
+   }
+   function acceptCookieConsent() {
+       setCookieConsent();
+       document.querySelector('.cookie-consent').style.display = 'none';
+   }
+   function acceptCookies() {
+       acceptCookieConsent();
+   }
 </script>
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var spinner = document.getElementById('loading-spinner');
-        spinner.style.display = 'flex'; // Show the spinner
-
-        window.addEventListener('load', function() {
-            spinner.style.display = 'none'; // Hide the spinner once the page is fully loaded
-        });
-    });
-    function openPopup(){
-  document.getElementById('popup').style.display = 'block';
-}
-
-function closePopup(){
-  document.getElementById('popup').style.display = 'none';
-}
-
-function sendEmailFromPopup(){
-  var query = document.getElementById("search-input").value;
-  // Opens the user's email client with the destination set to crackiteam1@gmail.com
-  window.location.href = "mailto:crackiteam1@gmail.com?subject=Missing%20App/Game&body=I%20searched%20for:%20" + encodeURIComponent(query);
-  closePopup();
-}
-document.getElementById("search-form").addEventListener("submit", function(event) {
-  event.preventDefault();
-  var query = document.getElementById("search-input").value.toLowerCase();
-  var images = document.querySelectorAll(".image-link");
-  
-  images.forEach(function(image) {
-    var imageTitle = image.querySelector("img").alt.toLowerCase();
-    if(imageTitle.includes(query) || fuzzySearch(query, imageTitle)){
-      image.style.display = "block";
-    } else {
-      image.style.display = "none";
-    }
-  });
-  
-  // Check if any image is visible:
-  var anyVisible = false;
-  images.forEach(function(image) {
-    if(image.style.display !== "none"){
-      anyVisible = true;
-    }
-  });
-  
-  // If no results are visible, open the popup.
-  if(!anyVisible) {
-    openPopup();
-  }
-});
-
+   window.onload = function(){
+       checkCookieConsent();
+   };
 </script>
+<script>
+   document.addEventListener('DOMContentLoaded', function () {
+       const messageBox = document.getElementById('messageBox');
+       setTimeout(() => {
+           messageBox.style.display = 'none';
+       }, 10000);
+       messageBox.style.display = 'block';
+   });
+   function closeMessage() {
+       const messageBox = document.getElementById('messageBox');
+       messageBox.style.display = 'none';
+   }
+</script>
+<script>
+   document.addEventListener("DOMContentLoaded", function() {
+       var spinner = document.getElementById('loading-spinner');
+       spinner.style.display = 'flex'; // Show the spinner
+       window.addEventListener('load', function() {
+           spinner.style.display = 'none'; // Hide the spinner once the page is fully loaded
+       });
+   });
+   function openPopup(){
+       document.getElementById('popup').style.display = 'block';
+   }
+   function closePopup(){
+       document.getElementById('popup').style.display = 'none';
+   }
+   function sendEmailFromPopup(){
+       var query = document.getElementById("search-input").value;
+       // Opens the user's email client with the destination set to crackiteam1@gmail.com
+       window.location.href = "mailto:crackiteam1@gmail.com?subject=Missing%20App/Game&body=I%20searched%20for:%20" + encodeURIComponent(query);
+       closePopup();
+   }
+</script>
+
 <!-- POPUP: Improved, animated and user-friendly popup -->
 <div id="popup" class="popup">
   <div class="popup-content">
