@@ -3,48 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Welcome to CrackIT, your ultimate destination for free, safe, and ad-free cracked games and software. Explore our vast library of meticulously curated content, all rigorously tested to ensure a seamless and secure experience.">
-    <meta name="google-adsense-account" content="ca-pub-2491662914406380">
-    <link rel="icon" href="android-chrome-512x512.png">
+    <meta name="description" content="Stay updated with the latest gaming news, trends, and updates on CrackIT.">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2491662914406380" crossorigin="anonymous"></script>
-    <title>CrackIT</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>Gaming News - CrackIT</title>
     <style>
-        /* General styling */
         body {
             font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #111, #333);
             color: #fff;
             margin: 0;
             padding: 0;
-            text-align: center;
         }
-        h1, h3 {
+        h1, h2 {
             font-family: 'Press Start 2P', cursive;
+            text-align: center;
         }
         a {
             text-decoration: none;
             color: inherit;
         }
-        img {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        img:hover {
-            transform: scale(1.2);
-            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
-        }
-        /* Header */
         header {
             background: #ff7f00;
             padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
         }
-        header h1 {
-            font-size: 2.5em;
-            color: #000;
-            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
-        }
-        /* Navigation */
         nav {
             display: flex;
             justify-content: center;
@@ -64,30 +47,58 @@
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
         }
-        /* Main content */
         main {
             padding: 30px 15px;
         }
-        main h3 {
-            font-size: 1.2em;
-            line-height: 1.8;
+        .news-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
         }
-        main a.contact-button {
+        .news-card {
+            background: #222;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            max-width: 300px;
+            overflow: hidden;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+        }
+        .news-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .news-card-content {
+            padding: 15px;
+        }
+        .news-card-content h3 {
+            font-size: 1.1em;
+            margin: 0 0 10px;
+        }
+        .news-card-content p {
+            font-size: 0.9em;
+            color: #bbb;
+        }
+        .news-card-content a {
             display: inline-block;
             margin-top: 10px;
-            padding: 10px 15px;
+            padding: 8px 12px;
             background: #ff7f00;
             color: #fff;
             border-radius: 5px;
             font-weight: bold;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        main a.contact-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(255, 127, 0, 0.5);
+        .news-card-content a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(255, 127, 0, 0.5);
         }
-        /* Footer */
         footer {
             display: flex;
             align-items: center;
@@ -100,9 +111,6 @@
             flex: 1;
             text-align: center;
         }
-        footer .trustpilot-widget {
-            flex: 2;
-        }
     </style>
 </head>
 <body>
@@ -112,24 +120,53 @@
     <nav>
         <a href="index.html">Home</a>
         <a href="apps.html">Apps</a>
-        <a href="Games.html">Games</a>
+        <a href="games.html">Games</a>
+        <a href="gaming-news.html">Gaming News</a>
         <a href="donate.html">Donate</a>
     </nav>
     <main>
-        <h3>Welcome to Crack.IT, your ultimate destination for cracked games and apps!<br> We provide access to verified links to cracked software from reputable sources.<br>Note: Crack.IT does not hold any rights to the software published here.<br> We value your feedback and strive to improve constantly!</h3>
-        <a href="mailto:crackiteam1@gmail.com" class="contact-button">Contact Us</a>
-        <p>If the contact button doesn't work, email us at: <strong>crackiteam1@gmail.com</strong></p>
+        <h2>Gaming News</h2>
+        <div class="news-section"></div>
     </main>
     <footer>
-        <div>&copy; 2024 Crack.IT</div>
-        <div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="663754ea3b8dd18b40e8c34e" data-style-height="52px" data-style-width="100%">
-            <a href="https://www.trustpilot.com/review/crackit.cc" target="_blank" rel="noopener">Trustpilot</a>
-        </div>
+        <div>&copy; 2025 Crack.IT</div>
         <div>
             <a href="https://www.instagram.com/crackit_al/" target="_blank">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png" alt="Instagram" width="30" height="30">
             </a>
         </div>
     </footer>
+    <script>
+        async function fetchGamingNews() {
+            try {
+                const response = await fetch('https://api.rawg.io/api/games?key=YOUR_API_KEY');
+                const data = await response.json();
+                const newsSection = document.querySelector('.news-section');
+                newsSection.innerHTML = ''; // Clear any existing content
+
+                data.results.forEach(game => {
+                    const newsCard = document.createElement('div');
+                    newsCard.className = 'news-card';
+
+                    newsCard.innerHTML = `
+                        <img src="${game.background_image}" alt="${game.name}">
+                        <div class="news-card-content">
+                            <h3>${game.name}</h3>
+                            <p>${game.released ? `Release Date: ${game.released}` : 'Release Date: TBA'}</p>
+                            <a href="${game.website || '#'}" target="_blank">Read More</a>
+                        </div>
+                    `;
+
+                    newsSection.appendChild(newsCard);
+                });
+            } catch (error) {
+                console.error('Error fetching gaming news:', error);
+                const newsSection = document.querySelector('.news-section');
+                newsSection.innerHTML = '<p>Failed to load gaming news. Please try again later.</p>';
+            }
+        }
+
+        fetchGamingNews();
+    </script>
 </body>
 </html>
