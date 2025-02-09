@@ -1309,14 +1309,22 @@ document.getElementById("search-form").addEventListener("submit", function (even
     event.preventDefault();
     var query = document.getElementById("search-input").value.toLowerCase();
     var images = document.querySelectorAll(".image-link");
+    var resultsFound = false; // Variable to track if any results are found
+
     images.forEach(function (image) {
         var imageTitle = image.querySelector("img").alt.toLowerCase();
         if (imageTitle.includes(query) || fuzzySearch(query, imageTitle)) {
             image.style.display = "block";
+            resultsFound = true;
         } else {
             image.style.display = "none";
         }
     });
+
+    // If no results found, show the missing popup
+    if (!resultsFound) {
+        openPopup(); // Only open the missing-popup if no results found
+    }
 });
 
 // Image Links
@@ -1387,11 +1395,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Open and Close Pop-up for Missing Apps/Games Search
 function openPopup() {
-    document.getElementById('missing-popup').style.display = 'block'; // Changed to 'missing-popup'
+    document.getElementById('missing-popup').style.display = 'block'; // Corrected to 'missing-popup'
 }
 
 function closePopup() {
-    document.getElementById('missing-popup').style.display = 'none'; // Changed to 'missing-popup'
+    document.getElementById('missing-popup').style.display = 'none'; // Corrected to 'missing-popup'
 }
 
 // Send Email From Missing App/Game Search Pop-up
@@ -1402,12 +1410,12 @@ function sendEmailFromPopup() {
     closePopup();
 }
 
-// Pop-up and Fuzzy Search
+// Pop-up and Fuzzy Search (with resultsFound flag to trigger missing-popup)
 document.getElementById("search-form").addEventListener("submit", function (event) {
     event.preventDefault();
     var query = document.getElementById("search-input").value.toLowerCase();
     var images = document.querySelectorAll(".image-link");
-    var resultsFound = false;
+    var resultsFound = false; // Flag to track results
 
     images.forEach(function (image) {
         var imageTitle = image.querySelector("img").alt.toLowerCase();
@@ -1424,11 +1432,10 @@ document.getElementById("search-form").addEventListener("submit", function (even
         openPopup();
     }
 });
-    </script>
-
+</script>
 
 <!-- POPUP: Improved, animated and user-friendly popup -->
-<div id="popup" class="popup">
+<div id="missing-popup" class="popup"> <!-- Updated from 'popup' to 'missing-popup' -->
   <div class="popup-content">
     <span class="popup-exit" onclick="closePopup()">✖</span>
     <p>
@@ -1439,6 +1446,5 @@ document.getElementById("search-form").addEventListener("submit", function (even
     <button onclick="sendEmailFromPopup()">Contact Us</button>
   </div>
 </div>
-
 </body>
 </html>
